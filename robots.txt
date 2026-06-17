@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /pages/login.html
+Disallow: /pages/register.html
+Disallow: /pages/forgot-password.html
+Disallow: /pages/messages.html
+Disallow: /pages/notifications.html
+Disallow: /pages/admin.html
+
+Sitemap: https://TU-DOMINIO.netlify.app/sitemap.xml

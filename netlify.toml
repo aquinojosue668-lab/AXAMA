@@ -1,0 +1,24 @@
+# AXAMA Social — Configuración de despliegue en Netlify
+# Sitio 100% estático: no requiere build command ni Node.js.
+
+[build]
+  publish = "."
+
+# Encabezados de seguridad básicos
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Redirección amigable: /login en vez de /pages/login.html
+[[redirects]]
+  from = "/login"
+  to = "/pages/login.html"
+  status = 200
+
+[[redirects]]
+  from = "/register"
+  to = "/pages/register.html"
+  status = 200

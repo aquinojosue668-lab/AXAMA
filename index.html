@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AXAMA Social — Inicio</title>
+  <meta name="description" content="AXAMA Social: una red social simple, cronológica y sin algoritmos. Sin scroll infinito, sin manipulación de la atención." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="AXAMA Social" />
+  <meta property="og:description" content="Una red social simple, humana y sin mecanismos adictivos." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/assets/og-cover.png" />
+
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/variables.css" />
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/layout.css" />
+  <link rel="stylesheet" href="/css/components.css" />
+
+  <!-- Tema aplicado antes de pintar para evitar parpadeo -->
+  <script>
+    (function () {
+      var saved = localStorage.getItem("axama-theme");
+      if (saved === "dark" || saved === "light") {
+        document.documentElement.setAttribute("data-theme", saved);
+      }
+    })();
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Saltar al contenido</a>
+
+  <header class="app-header" id="app-header" role="banner"></header>
+
+  <main id="main-content" class="page page--narrow">
+    <section aria-label="Publicación nueva" id="composer-mount"></section>
+
+    <section aria-label="Publicaciones recientes" id="feed-mount">
+      <!-- Estado vacío temporal: se reemplaza por publicaciones reales en la Etapa 5 -->
+      <div class="empty-state">
+        <h3>Aún no hay publicaciones</h3>
+        <p>Cuando empieces a seguir personas o publiques algo, aparecerá aquí, en orden, sin sorpresas.</p>
+      </div>
+    </section>
+
+    <nav class="pagination" aria-label="Paginación del feed" id="pagination-mount" hidden>
+      <button type="button" class="pagination__btn" data-prev-page>
+        <span aria-hidden="true">←</span> Anterior
+      </button>
+      <span class="pagination__status" id="pagination-status"></span>
+      <button type="button" class="pagination__btn" data-next-page>
+        Siguiente <span aria-hidden="true">→</span>
+      </button>
+    </nav>
+  </main>
+
+  <footer class="app-footer" id="app-footer" role="contentinfo"></footer>
+
+  <!-- SDK de Supabase (build UMD, ver nota en js/supabaseClient.js) -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+  <script type="module" src="/js/pages/feed.js"></script>
+</body>
+</html>
